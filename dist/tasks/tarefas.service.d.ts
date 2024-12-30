@@ -6,16 +6,16 @@ export declare class TarefasService {
     constructor(prisma: PrismaService);
     Criar(createTarefaDto: CreateTarefaDto): Promise<void>;
     ListarTodos(): Promise<{
-        id: string;
         tarefa: string;
-        dtCriacao: Date;
         dtAtualizacao: Date;
+        id: string;
+        dtCriacao: Date;
     }[]>;
     BuscarTarefa(id: string): Promise<{
-        id: string;
         tarefa: string;
-        dtCriacao: Date;
         dtAtualizacao: Date;
+        id: string;
+        dtCriacao: Date;
     }>;
     update(id: number, updateTarefaDto: UpdateTarefaDto): string;
     remove(id: number): string;
