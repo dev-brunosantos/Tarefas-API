@@ -10,7 +10,9 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
+  // url      = env("DATABASE_URL") //  HML
+  url      = env("DATABASE_URL_PROD") //  PROD
+
 }
 
 model Tarefas {
