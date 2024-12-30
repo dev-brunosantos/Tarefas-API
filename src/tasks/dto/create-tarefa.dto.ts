@@ -1,1 +1,3 @@
-export class CreateTarefaDto {}
+export class CreateTarefaDto {
+    tarefa: string;
+}
