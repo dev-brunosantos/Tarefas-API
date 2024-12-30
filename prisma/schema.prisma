@@ -12,3 +12,10 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Tarefas {
+  id String @id @default(uuid())
+  tarefa String @unique
+  dtCriacao DateTime @default(now())
+  dtAtualizacao DateTime @updatedAt()
+}
