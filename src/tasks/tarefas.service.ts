@@ -27,9 +27,9 @@ export class TarefasService {
   async ListarTodos() {
     const tarefas = await this.prisma.tarefas.findMany()
 
-    if(!tarefas) {
+    if(tarefas.length < 0) {
       throw new HttpException("Não existe nenhuma tarefa cadastrada no sistema.", HttpStatus.NOT_FOUND)
-    }
+    } 
     
     return tarefas
   }
