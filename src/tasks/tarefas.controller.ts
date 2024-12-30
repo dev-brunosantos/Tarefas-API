@@ -8,18 +8,18 @@ export class TarefasController {
   constructor(private readonly tarefasService: TarefasService) {}
 
   @Post()
-  create(@Body() createTarefaDto: CreateTarefaDto) {
-    return this.tarefasService.create(createTarefaDto);
+  Criar(@Body() createTarefaDto: CreateTarefaDto) {
+    return this.tarefasService.Criar(createTarefaDto);
   }
 
   @Get()
-  findAll() {
-    return this.tarefasService.findAll();
+  Listar() {
+    return this.tarefasService.ListarTodos();
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.tarefasService.findOne(+id);
+  FiltrarID(@Param('id') id: string) {
+    return this.tarefasService.BuscarTarefa(id);
   }
 
   @Patch(':id')
