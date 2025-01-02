@@ -5,46 +5,46 @@ export declare class UsuariosService {
     private prisma;
     constructor(prisma: PrismaService);
     Cadastrar(createUsuarioDto: CreateUsuarioDto): Promise<{
+        id: string;
         nome: string;
         email: string;
         senha: string;
-        dtAtualizacao: Date;
-        id: string;
         dtCriacao: Date;
+        dtAtualizacao: Date;
     }>;
     BuscarUsuarios(): Promise<{
+        id: string;
         nome: string;
         email: string;
         senha: string;
-        dtAtualizacao: Date;
-        id: string;
         dtCriacao: Date;
+        dtAtualizacao: Date;
     }[]>;
     FiltrarUsuario(id: string): Promise<{
+        id: string;
         nome: string;
         email: string;
         senha: string;
-        dtAtualizacao: Date;
-        id: string;
         dtCriacao: Date;
+        dtAtualizacao: Date;
     }>;
     Atualizar(id: string, updateUsuarioDto: UpdateUsuarioDto): Promise<{
         mensagem: string;
         dadosDesatualizados: {
+            id: string;
             nome: string;
             email: string;
             senha: string;
-            dtAtualizacao: Date;
-            id: string;
             dtCriacao: Date;
+            dtAtualizacao: Date;
         };
         dadosAtualizados: {
+            id: string;
             nome: string;
             email: string;
             senha: string;
-            dtAtualizacao: Date;
-            id: string;
             dtCriacao: Date;
+            dtAtualizacao: Date;
         };
     }>;
     Apagar(id: string): Promise<string>;
