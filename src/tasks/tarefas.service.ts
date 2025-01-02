@@ -12,9 +12,13 @@ export class TarefasService {
     const tarefaCadastrada = await this.prisma.tarefas.findFirst({ where: { tarefa: createTarefaDto.tarefa }})
 
     if(!tarefaCadastrada) {
+
+     
+
       const novaTarefa = await this.prisma.tarefas.create({
         data: {
-          tarefa: createTarefaDto.tarefa
+          tarefa: createTarefaDto.tarefa,
+          idUsuario: createTarefaDto.idUsuario
         }
       })
 

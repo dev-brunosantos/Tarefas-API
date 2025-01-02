@@ -21,6 +21,8 @@ model Tarefas {
   dtCriacao DateTime @default(now())
   dtAtualizacao DateTime @updatedAt()
 
+  idUsuario String
+  usuarios Usuarios @relation(fields: [idUsuario], references: [id])
 }
 
 model Usuarios {
@@ -31,4 +33,5 @@ model Usuarios {
   dtCriacao DateTime @default(now())
   dtAtualizacao DateTime @updatedAt()
 
+  tarefas Tarefas[]
 }
