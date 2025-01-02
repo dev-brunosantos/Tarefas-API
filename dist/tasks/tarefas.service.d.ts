@@ -10,12 +10,14 @@ export declare class TarefasService {
         tarefa: string;
         dtCriacao: Date;
         dtAtualizacao: Date;
+        idUsuario: string;
     }[]>;
     BuscarTarefa(id: string): Promise<{
         id: string;
         tarefa: string;
         dtCriacao: Date;
         dtAtualizacao: Date;
+        idUsuario: string;
     }>;
     update(id: number, updateTarefaDto: UpdateTarefaDto): string;
     remove(id: number): string;

@@ -10,12 +10,14 @@ export declare class TarefasController {
         tarefa: string;
         dtCriacao: Date;
         dtAtualizacao: Date;
+        idUsuario: string;
     }[]>;
     FiltrarID(id: string): Promise<{
         id: string;
         tarefa: string;
         dtCriacao: Date;
         dtAtualizacao: Date;
+        idUsuario: string;
     }>;
     update(id: string, updateTarefaDto: UpdateTarefaDto): string;
     remove(id: string): string;
