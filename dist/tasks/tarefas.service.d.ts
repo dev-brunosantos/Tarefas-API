@@ -7,16 +7,16 @@ export declare class TarefasService {
     Criar(createTarefaDto: CreateTarefaDto): Promise<void>;
     ListarTodos(): Promise<{
         id: string;
-        tarefa: string;
         dtCriacao: Date;
         dtAtualizacao: Date;
+        tarefa: string;
         idUsuario: string;
     }[]>;
     BuscarTarefa(id: string): Promise<{
         id: string;
-        tarefa: string;
         dtCriacao: Date;
         dtAtualizacao: Date;
+        tarefa: string;
         idUsuario: string;
     }>;
     update(id: number, updateTarefaDto: UpdateTarefaDto): string;
