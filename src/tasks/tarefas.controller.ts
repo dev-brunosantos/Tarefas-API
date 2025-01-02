@@ -7,7 +7,7 @@ import { UpdateTarefaDto } from './dto/update-tarefa.dto';
 export class TarefasController {
   constructor(private readonly tarefasService: TarefasService) {}
 
-  @Post(':id')
+  @Post()
   Criar(@Body() createTarefaDto: CreateTarefaDto) {
     return this.tarefasService.Criar(createTarefaDto);
   }

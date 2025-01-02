@@ -39,7 +39,7 @@ let TarefasController = class TarefasController {
 };
 exports.TarefasController = TarefasController;
 __decorate([
-    (0, common_1.Post)(':id'),
+    (0, common_1.Post)(),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [create_tarefa_dto_1.CreateTarefaDto]),
