@@ -24,19 +24,53 @@ export class UsuariosService {
     throw new HttpException('Usuário já cadastrado', HttpStatus.BAD_REQUEST)
   }
 
-  findAll() {
-    return `This action returns all usuarios`;
+  async BuscarUsuarios() {
+    const usuarios = await this.prisma.usuarios.findMany()
+    
+    if(usuarios.length > 0) {
+      return usuarios
+    }
+
+    throw new HttpException('Não existe nenhum usuário cadastrado no sistema.', HttpStatus.NOT_FOUND)
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} usuario`;
+  async FiltrarUsuario(id: string) {
+    const usuarioId = await this.prisma.usuarios.findUnique({ where: { id } })
+    
+    if(!usuarioId) {
+      throw new HttpException('Não existe nenhum usuário vinculado ao ID informado.', HttpStatus.NOT_FOUND)
+    }
+    return usuarioId
   }
 
-  update(id: number, updateUsuarioDto: UpdateUsuarioDto) {
-    return `This action updates a #${id} usuario`;
+  async Atualizar(id: string, updateUsuarioDto: UpdateUsuarioDto) {
+    const usuarioExistente = await this.prisma.usuarios.findUnique({ where: { id } })
+
+    if(usuarioExistente) {
+      const usuarioAtualizado = await this.prisma.usuarios.update({
+        where: {id},
+        data: updateUsuarioDto
+      })
+
+      return {
+        mensagem: 'Usuário atualizado com sucesso!',
+        dadosDesatualizados: usuarioExistente,
+        dadosAtualizados: usuarioAtualizado
+      }
+    }
+
+    throw new HttpException('Não existe nenhum usuário vinculado ao ID informado.', HttpStatus.NOT_FOUND)
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} usuario`;
+  async Apagar(id: string) {
+    const usuarioId = this.prisma.usuarios.delete({ where: { id } })
+
+    if(!usuarioId) {
+      throw new HttpException('Não existe nenhum usuário vinculado ao ID informado.', HttpStatus.NOT_FOUND)
+    }
+
+    await this.prisma.usuarios.delete({ where: { id } })
+
+    return "Dados do usuário apagado com sucesso!"
   }
 }
