@@ -20,4 +20,15 @@ model Tarefas {
   tarefa String @unique
   dtCriacao DateTime @default(now())
   dtAtualizacao DateTime @updatedAt()
+
+}
+
+model Usuarios {
+  id String @id @default(uuid())
+  nome String
+  email String @unique
+  senha String
+  dtCriacao DateTime @default(now())
+  dtAtualizacao DateTime @updatedAt()
+
 }
