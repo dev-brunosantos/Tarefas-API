@@ -21,7 +21,8 @@ let TarefasService = class TarefasService {
         if (!tarefaCadastrada) {
             const novaTarefa = await this.prisma.tarefas.create({
                 data: {
-                    tarefa: createTarefaDto.tarefa
+                    tarefa: createTarefaDto.tarefa,
+                    idUsuario: createTarefaDto.idUsuario
                 }
             });
             throw new common_1.HttpException("Tarefa cadastrada com sucesso.", common_1.HttpStatus.CREATED);

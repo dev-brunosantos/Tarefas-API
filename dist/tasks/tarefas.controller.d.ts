@@ -6,16 +6,18 @@ export declare class TarefasController {
     constructor(tarefasService: TarefasService);
     Criar(createTarefaDto: CreateTarefaDto): Promise<void>;
     Listar(): Promise<{
-        tarefa: string;
-        dtAtualizacao: Date;
         id: string;
+        tarefa: string;
         dtCriacao: Date;
+        dtAtualizacao: Date;
+        idUsuario: string;
     }[]>;
     FiltrarID(id: string): Promise<{
-        tarefa: string;
-        dtAtualizacao: Date;
         id: string;
+        tarefa: string;
         dtCriacao: Date;
+        dtAtualizacao: Date;
+        idUsuario: string;
     }>;
     update(id: string, updateTarefaDto: UpdateTarefaDto): string;
     remove(id: string): string;

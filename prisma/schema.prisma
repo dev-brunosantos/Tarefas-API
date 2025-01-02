@@ -20,4 +20,18 @@ model Tarefas {
   tarefa String @unique
   dtCriacao DateTime @default(now())
   dtAtualizacao DateTime @updatedAt()
+
+  idUsuario String
+  usuarios Usuarios @relation(fields: [idUsuario], references: [id])
+}
+
+model Usuarios {
+  id String @id @default(uuid())
+  nome String
+  email String @unique
+  senha String
+  dtCriacao DateTime @default(now())
+  dtAtualizacao DateTime @updatedAt()
+
+  tarefas Tarefas[]
 }

@@ -12,69 +12,69 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.TarefasController = void 0;
+exports.UsuariosController = void 0;
 const common_1 = require("@nestjs/common");
-const tarefas_service_1 = require("./tarefas.service");
-const create_tarefa_dto_1 = require("./dto/create-tarefa.dto");
-const update_tarefa_dto_1 = require("./dto/update-tarefa.dto");
-let TarefasController = class TarefasController {
-    constructor(tarefasService) {
-        this.tarefasService = tarefasService;
+const usuarios_service_1 = require("./usuarios.service");
+const create_usuario_dto_1 = require("./dto/create-usuario.dto");
+const update_usuario_dto_1 = require("./dto/update-usuario.dto");
+let UsuariosController = class UsuariosController {
+    constructor(usuariosService) {
+        this.usuariosService = usuariosService;
     }
-    Criar(createTarefaDto) {
-        return this.tarefasService.Criar(createTarefaDto);
+    Criar(createUsuarioDto) {
+        return this.usuariosService.Cadastrar(createUsuarioDto);
     }
-    Listar() {
-        return this.tarefasService.ListarTodos();
+    Buscar() {
+        return this.usuariosService.BuscarUsuarios();
     }
     FiltrarID(id) {
-        return this.tarefasService.BuscarTarefa(id);
+        return this.usuariosService.FiltrarUsuario(id);
     }
-    update(id, updateTarefaDto) {
-        return this.tarefasService.update(+id, updateTarefaDto);
+    Atualizar(id, updateUsuarioDto) {
+        return this.usuariosService.Atualizar(id, updateUsuarioDto);
     }
-    remove(id) {
-        return this.tarefasService.remove(+id);
+    Apagar(id) {
+        return this.usuariosService.Apagar(id);
     }
 };
-exports.TarefasController = TarefasController;
+exports.UsuariosController = UsuariosController;
 __decorate([
-    (0, common_1.Post)(':id'),
+    (0, common_1.Post)(),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [create_tarefa_dto_1.CreateTarefaDto]),
+    __metadata("design:paramtypes", [create_usuario_dto_1.CreateUsuarioDto]),
     __metadata("design:returntype", void 0)
-], TarefasController.prototype, "Criar", null);
+], UsuariosController.prototype, "Criar", null);
 __decorate([
     (0, common_1.Get)(),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
-], TarefasController.prototype, "Listar", null);
+], UsuariosController.prototype, "Buscar", null);
 __decorate([
     (0, common_1.Get)(':id'),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
-], TarefasController.prototype, "FiltrarID", null);
+], UsuariosController.prototype, "FiltrarID", null);
 __decorate([
     (0, common_1.Patch)(':id'),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, update_tarefa_dto_1.UpdateTarefaDto]),
+    __metadata("design:paramtypes", [String, update_usuario_dto_1.UpdateUsuarioDto]),
     __metadata("design:returntype", void 0)
-], TarefasController.prototype, "update", null);
+], UsuariosController.prototype, "Atualizar", null);
 __decorate([
     (0, common_1.Delete)(':id'),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
-], TarefasController.prototype, "remove", null);
-exports.TarefasController = TarefasController = __decorate([
-    (0, common_1.Controller)('tarefas'),
-    __metadata("design:paramtypes", [tarefas_service_1.TarefasService])
-], TarefasController);
-//# sourceMappingURL=tarefas.controller.js.map
+], UsuariosController.prototype, "Apagar", null);
+exports.UsuariosController = UsuariosController = __decorate([
+    (0, common_1.Controller)('usuarios'),
+    __metadata("design:paramtypes", [usuarios_service_1.UsuariosService])
+], UsuariosController);
+//# sourceMappingURL=usuarios.controller.js.map
